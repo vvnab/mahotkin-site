@@ -42,3 +42,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# How to Submit an HTML Form to Google Sheets…without Google Forms
+https://medium.com/@dmccoy/how-to-submit-an-html-form-to-google-sheets-without-google-forms-b833952cc175
+
+## URL
+https://script.google.com/macros/s/AKfycby3wNX6c6ZX9n35JqBdQZyc9s5WCCWC-KRkgcH52oLhF757pddR/exec

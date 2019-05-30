@@ -1,0 +1,47 @@
+@keyframes transit {
+  0% {
+    top: -1rem;
+    opacity: 0;
+  }
+  100% {
+    top: 0.5rem;
+    opacity: 1;
+  }
+}
+
+.container {
+  top: 0.5rem;
+  opacity: 1;
+  position: fixed;
+  z-index: 999;
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: transit 0.5s;
+}
+
+.message {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  min-width: 40vw;
+  text-align: center;
+  border: 2px solid;
+  border-radius: 0.25rem;
+  color: white;
+  box-shadow: 0 0 0.25rem 0rem rgba(0, 0, 0, 0.5);
+  &.WARN {
+    background: rgb(202, 149, 14);
+  }
+  &.ERROR {
+    background: red;
+  }
+  &.INFO {
+    background: rgb(25, 172, 25);
+  }
+}
+
