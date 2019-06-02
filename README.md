@@ -43,6 +43,12 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
+# deploy
+
+`yarn deploy`
+
+https://mahotkin-site.web.app
+
 # How to Submit an HTML Form to Google Sheets…without Google Forms
 https://medium.com/@dmccoy/how-to-submit-an-html-form-to-google-sheets-without-google-forms-b833952cc175
 

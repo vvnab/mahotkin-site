@@ -14,10 +14,11 @@
       max-width: 400px;
       .contacts {
         padding: 1rem;
-        
+        padding-right: 2rem;
       }
     }
     .mapContainer {
+      background: $form-background-color;
       flex: 1 1 auto;
       min-height: 40vh;
       border: none;

@@ -1,5 +1,6 @@
 {
   "projects": {
-    "mahotkin-site": "mahotkin-site"
+    "mahotkin-site": "mahotkin-site",
+    "default": "mahotkin-site"
   }
 }
