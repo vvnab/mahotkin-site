@@ -1,0 +1,27 @@
+@import "../assets/colors.scss";
+
+.container {
+  color: $footer-text-color;
+  background: $footer-background-color;
+  padding: 0 !important;
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    .contactsContainer {
+      flex: 1 1 auto;
+      display: flex;
+      justify-content: flex-end;
+      max-width: 400px;
+      .contacts {
+        padding: 1rem;
+        
+      }
+    }
+    .mapContainer {
+      flex: 1 1 auto;
+      min-height: 40vh;
+      border: none;
+      border-top: 1px solid $footer-border-color;
+    }
+  }
+}

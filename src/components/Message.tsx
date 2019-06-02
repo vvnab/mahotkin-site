@@ -10,9 +10,9 @@ interface IMessage {
 
 const Message: FC<IMessage> = ({ text, messageType = "INFO", onClick }) => {
   return (
-    <div>
+    <div className={styles.container}>
       {text && (
-        <div className={styles.container} onClick={onClick}>
+        <div onClick={onClick}>
           <div className={[styles.message, styles[messageType]].join(" ")}>
             {text}
           </div>

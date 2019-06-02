@@ -1,14 +1,14 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Form from "../components/Form";
+import Callback from "../components/Callback";
 
 export default function() {
-  const [t, i18n] = useTranslation();
+  const t = useTranslation()[0];
   return (
     <div>
       <h1>{t("main.title")}</h1>
       <p>{t("main.description")}</p>
-      <Form />
+      <Callback />
     </div>
   );
 }

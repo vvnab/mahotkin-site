@@ -1,0 +1,13 @@
+@import "../assets/colors.scss";
+
+.container {
+  flex: 1 1 auto;
+  background: $submit-background-color;
+  border: 1px solid $submit-border-color;
+  color: $submit-text-color;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 0.25rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}

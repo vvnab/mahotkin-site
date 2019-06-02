@@ -10,32 +10,38 @@
   border: 1px solid;
   outline: none;
   width: 100%;
-  border-color: $border-color;
+  border-color: $form-border-color;
 
   &.error {
-    border-color: $border-error;
+    border-color: $form-border-error;
+    .hint {
+      color: $form-border-error;
+    }
   }
 
   &:focus-within {
-    border-color: $border-focus;
+    border-color: $form-border-focus;
   }
 
   .input {
-    color: $input-text-color;
+    color: $form-text-color;
     background: transparent;
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
+    padding: 1.2rem 1rem 0.5rem 1rem;
+    font-size: 1.1rem;
     border: none;
     outline: none;
+    width: 100%;
   }
 
   .hint {
     opacity: 0.75;
-    font-family: "Roboto";
+    font-family: "Roboto Condensed";
     font-size: 0.8rem;
     position: absolute;
+    top: 0.1rem;
     right: 0.3rem;
-    bottom: 0.3rem;
+    // bottom: 0.3rem;
+    text-transform: lowercase;
   }
     
 }

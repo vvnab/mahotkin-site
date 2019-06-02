@@ -14,11 +14,13 @@ const Suggest: FC<ISuggest> = ({ children }) => {
 interface IInput {
   type: string;
   name: string;
-  onChange: (value: string) => void;
+  placeholder?: string;
+  onChange: (value: string, name?: string) => void;
   mask?: Array<string | RegExp>;
+  pipe?: any;
   value?: string;
   error?: boolean;
-  validator?: (value: string) => boolean;
+  validator?: (value: string) => any;
   getSuggestions?: (value: string) => Promise<string[]>;
 }
 
@@ -26,7 +28,9 @@ const Input: FC<IInput> = ({
   type,
   name,
   value,
+  placeholder,
   mask,
+  pipe,
   onChange,
   error,
   validator,
@@ -37,22 +41,34 @@ const Input: FC<IInput> = ({
     type,
     name,
     value,
-    onChange: (e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)
+    placeholder,
+    onChange: (e: ChangeEvent<HTMLInputElement>) =>
+      onChange(e.target.value, name)
   };
   const [suggestions, setSuggestions] = useState<string[] | undefined>();
   useEffect(() => {
     if (getSuggestions && value) {
       getSuggestions(value).then(setSuggestions);
     }
-  }, [value]);
+  }, [value, getSuggestions]);
   return (
     <div
       className={[
         styles.container,
-        (validator && value ? validator(value) && error : error) && styles.error
+        (validator && value ? !validator(value) && error : error) &&
+          styles.error
       ].join(" ")}
     >
-      {mask ? <MaskedInput {...props} /> : <input {...props} />}
+      {mask || pipe ? (
+        pipe ? (
+          <MaskedInput {...props} mask={mask} pipe={pipe}/>
+        ) : (
+          <MaskedInput {...props} mask={mask} />
+        )
+      ) : (
+        <input {...props} />
+      )}
+      {value && <span className={styles.hint}>{placeholder}</span>}
       {suggestions && (
         <div className={styles.suggestions}>
           {suggestions.map((i, k) => (
