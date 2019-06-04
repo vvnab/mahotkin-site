@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 import { useTranslation } from "react-i18next";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
@@ -15,6 +16,7 @@ const Header: FC = () => {
     return () =>
       document.removeEventListener("mousedown", handleClickOutside, false);
   }, []);
+  
   const handleClickOutside = (e: MouseEvent) => {
     // @ts-ignore
     if (el && el.current && el.current.contains(e.target)) {
@@ -39,7 +41,7 @@ const Header: FC = () => {
             {t("header.menu.1")}
           </Link>
         </div>
-        <div className={styles.contacts}>{t("header.phone")}</div>
+        <div className={styles.contacts}>{t("contacts.phone")}</div>
         <div className={styles.bars} onClick={e => setMenu(!menu)} ref={el}>
           <Icon icon={faBars} />
         </div>

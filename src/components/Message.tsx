@@ -1,4 +1,5 @@
 import React, { FC, MouseEventHandler } from "react";
+import { observer } from "mobx-react-lite";
 
 import styles from "./Message.module.scss";
 
@@ -10,11 +11,13 @@ interface IMessage {
 
 const Message: FC<IMessage> = ({ text, messageType = "INFO", onClick }) => {
   return (
-    <div className={styles.container}>
+    <div>
       {text && (
-        <div onClick={onClick}>
-          <div className={[styles.message, styles[messageType]].join(" ")}>
-            {text}
+        <div className={styles.container}>
+          <div onClick={onClick}>
+            <div className={[styles.message, styles[messageType]].join(" ")}>
+              {text}
+            </div>
           </div>
         </div>
       )}

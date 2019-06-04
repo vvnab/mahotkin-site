@@ -2,7 +2,7 @@ import React, { FC, useState, FormEvent } from "react";
 import validator from "validator";
 import { useTranslation } from "react-i18next";
 import { ICallback, ICallbackErrors } from "../models/data";
-import { data } from "../store";
+import { data, ui } from "../store";
 import config from "../config";
 
 import Input from "./Input";
@@ -46,8 +46,13 @@ const Callback: FC = () => {
 
     if (!hasErrors) {
       data.callback(formData).then(result => {
-        setFio("");
-        setPhone("");
+        if (result !== false) {
+          ui.setMessage({text: t('callback.success')});
+          setFio("");
+          setPhone("");
+        } else {
+          ui.setMessage({text: t('callback.error'), type: "ERROR"});
+        }
       });
     }
 
@@ -61,7 +66,7 @@ const Callback: FC = () => {
         placeholder={t("callback.fio")}
         name="fio"
         value={fio}
-        onChange={setFio}
+        onChange={(value, name) => setFio(value)}
         error={errors.fio}
         validator={i => !!i && i.length > 1}
       />
@@ -71,7 +76,7 @@ const Callback: FC = () => {
         name="phone"
         value={phone}
         mask={config.phoneMask}
-        onChange={setPhone}
+        onChange={(value, name) => setPhone(value)}
         error={errors.phone}
         validator={i => validator.isMobilePhone(i.replace(/\D/g, ""), "ru-RU")}
       />

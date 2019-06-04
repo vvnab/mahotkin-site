@@ -12,7 +12,7 @@ const Map = () => (
 const Footer: React.FC = () => {
   const t = useTranslation()[0];
   return (
-    <section className={styles.container} id="#footer">
+    <section className={styles.container}>
       <div className={styles.content}>
         <div className={styles.contactsContainer}>
           <ul className={styles.contacts}>
@@ -24,6 +24,7 @@ const Footer: React.FC = () => {
         </div>
         <Map />
       </div>
+      <div id="footer"></div>
     </section>
   );
 };

@@ -26,22 +26,35 @@
   .input {
     color: $form-text-color;
     background: transparent;
-    padding: 1.2rem 1rem 0.5rem 1rem;
+    padding: 1.5rem 1rem 0.5rem 1rem;
     font-size: 1.1rem;
     border: none;
     outline: none;
     width: 100%;
+    transition: all 0.5s;
+    &.empty {
+      padding: 1rem;  
+    }
   }
 
   .hint {
     opacity: 0.75;
+    font-family: "Roboto";
+    font-size: 0.8rem;
+    position: absolute;
+    top: 0.2rem;
+    left: 1rem;
+    text-transform: lowercase;
+  }
+    
+  .hint2 {
+    opacity: 0.75;
     font-family: "Roboto Condensed";
     font-size: 0.8rem;
     position: absolute;
-    top: 0.1rem;
+    top: 0.2rem;
     right: 0.3rem;
     // bottom: 0.3rem;
     text-transform: lowercase;
   }
-    
 }

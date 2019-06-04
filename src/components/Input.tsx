@@ -37,7 +37,7 @@ const Input: FC<IInput> = ({
   getSuggestions
 }) => {
   const props = {
-    className: styles.input,
+    className: value ? styles.input : [styles.input, styles.empty].join(" "),
     type,
     name,
     value,

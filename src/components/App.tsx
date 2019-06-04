@@ -1,7 +1,9 @@
-import React from "react";
-import { Router, Switch, Route } from "react-router-dom";
+import React, { FC } from "react";
+import { Router, Switch, Route } from "react-router";
+import { observer } from "mobx-react-lite";
 import { history, ui } from "../store";
 
+import Loader from "./Loader";
 import Message from "./Message";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -10,9 +12,10 @@ import Profile from "../pages/Profile";
 
 import styles from "./App.module.scss";
 
-const App: React.FC = () => {
+const App: FC = observer(() => {
   return (
     <div className={styles.container}>
+      <Loader loading={ui.loading}/>
       <Message
         text={ui.message}
         messageType={ui.messageType}
@@ -30,6 +33,6 @@ const App: React.FC = () => {
       </Router>
     </div>
   );
-};
+});
 
 export default App;

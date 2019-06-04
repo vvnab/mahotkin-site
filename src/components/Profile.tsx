@@ -2,7 +2,7 @@ import React, { FC, useState, FormEvent } from "react";
 import validator from "validator";
 import { useTranslation } from "react-i18next";
 import { IProfile, IProfileErrors } from "../models/data";
-// import { data } from "../store";
+import { data, ui } from "../store";
 import config from "../config";
 
 import Input from "./Input";
@@ -10,23 +10,38 @@ import Submit from "./Submit";
 
 import styles from "./Profile.module.scss";
 
-const MIN_TEXTFIELD_LENGTH = 6;
+const MIN_TEXTFIELD_LENGTH = 3;
+
+const initValues = {
+  fio: "Набережный Виталий Викторович",
+  phone: "+79128649411",
+  license: "11ШМ 123456",
+  licenseDate: "12.05.2011",
+  licenseDateExpire: "12.05.2030",
+  carBrand: "Toyota",
+  carModel: "Supra",
+  carColor: "жёлтый",
+  carYear: "2001",
+  carRegNo: "о111оо 011"
+};
+
+const initValues2 = {
+  fio: "",
+  phone: "",
+  license: "",
+  licenseDate: "",
+  licenseDateExpire: "",
+  carBrand: "",
+  carModel: "",
+  carColor: "",
+  carYear: "",
+  carRegNo: ""
+};
 
 const Profile: FC = () => {
   const t = useTranslation()[0];
 
-  const [values, setValues] = useState<IProfile>({
-    fio: "",
-    phone: "",
-    license: "",
-    licenseDate: "",
-    licenseDateExpire: "",
-    carBrand: "",
-    carModel: "",
-    carColor: "",
-    carYear: "",
-    carRegNo: ""
-  });
+  const [values, setValues] = useState<IProfile>(initValues);
   const [errors, setErrors] = useState<IProfileErrors>({});
 
   const submit = (e: FormEvent) => {
@@ -68,7 +83,7 @@ const Profile: FC = () => {
             break;
           case "carRegNo":
             s.carRegNo = !(
-              value && value.match(/[а-яА-Яa-zA-Z]\d{3}[а-яА-Яa-zA-Z]{2}\d{3}/)
+              value && value.match(/[а-яА-Яa-zA-Z]\d{3}[а-яА-Яa-zA-Z]{2} \d{3}/)
             );
             break;
           default:
@@ -85,10 +100,18 @@ const Profile: FC = () => {
     );
 
     if (!hasErrors) {
-      console.log("submit", values);
+      data.sendProfile(values).then(result => {
+        if (result !== false) {
+          setValues(initValues2);
+          ui.setMessage({text: t('profile.success')});
+        } else {
+          ui.setMessage({text: t('profile.error'), type: "ERROR"});
+        }
+      });
+    } else {
+      setErrors(errors);
     }
 
-    setErrors(errors);
     e.preventDefault();
   };
 
@@ -194,7 +217,7 @@ const Profile: FC = () => {
         placeholder={t("profile.carRegNo")}
         name="carRegNo"
         mask={config.regNoMask}
-        validator={i => i.match(/[а-яА-Яa-zA-Z]\d{3}[а-яА-Яa-zA-Z]{2}\d{3}/)}
+        validator={i => i.match(/[а-яА-Яa-zA-Z]\d{3}[а-яА-Яa-zA-Z]{2} \d{3}/)}
         value={values.carRegNo}
         onChange={setValue}
         error={errors.carRegNo}
