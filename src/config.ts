@@ -9,4 +9,20 @@ export default {
   yearMask: [/\d/, /\d/, /\d/, /\d/],
   regNoMask: [/[а-яА-Яa-zA-Z]/, /\d/, /\d/, /\d/, /[а-яА-Яa-zA-Z]/, /[а-яА-Яa-zA-Z]/, ' ', /\d/, /\d/, /\d/],
   sheetUrl: "https://script.google.com/macros/s/AKfycbzqvtwrV9YhI2v835a571-S0FJiMYUuBpfovfCV6oRooEniIAKv/exec",
+  viberUrl: "https://chatapi.viber.com/pa/post",
+  viberToken: "49c89d39cd67d3c7-30d035d370be9de0-c4a52f4c8bf66181",
+  towns: [
+    "Санкт-Петербург",
+    "Калининград",
+    "Мурманск",
+    "Петрозаводск",
+    "Сыктывкар",
+    "В.Новгород",
+    "Ломоносов",
+    "Петергоф",
+    "Кр Село",
+    "Иркутск",
+    "Владивосток",
+    "Хабаровск"
+  ]
 }

@@ -4,6 +4,10 @@ import { DataAPI } from "./api/data";
 import { IMessage } from "./models/ui";
 import { ICallback, IProfile } from "./models/data";
 
+import { initValues } from "./components/Profile";
+
+const profileInitValues = Object.keys(initValues).reduce((s: IProfile, i) => { s[i] = '----'; return s; }, {});
+
 class UI {
   @observable message: string = "";
   @observable messageType: string = "INFO";
@@ -30,8 +34,14 @@ class Data {
     let result = false;
     ui.loading = true;
     try {
-      result = await DataAPI.callback(data);
-    } catch(err) {
+      result = await DataAPI.sendProfile({ timestamp: new Date().toLocaleString(), ...profileInitValues, ...data });
+      try {
+        await DataAPI.callback(data);
+      } catch (err) {
+        console.error("viber bot", err);
+      }
+      this.sended = true;
+    } catch (err) {
       console.error(err);
     }
     ui.loading = false;
@@ -42,8 +52,9 @@ class Data {
     let result = false;
     ui.loading = true;
     try {
-      result = await DataAPI.sendProfile(data);
-    } catch(err) {
+      result = await DataAPI.sendProfile({ timestamp: new Date().toLocaleString(), ...data });
+      this.sended = true;
+    } catch (err) {
       console.error(err);
     }
     ui.loading = false;

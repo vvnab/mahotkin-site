@@ -2,11 +2,12 @@ import React from "react";
 // import { useTranslation } from "react-i18next";
 import Profile from "../components/Profile";
 
+import styles from "./Profile.module.scss";
+
 export default function() {
-  // const [t, i18n] = useTranslation();
   return (
-    <div>
+    <section className={styles.container}>
       <Profile />
-    </div>
+    </section>
   );
 }

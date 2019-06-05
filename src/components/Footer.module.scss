@@ -11,10 +11,14 @@
       flex: 1 1 auto;
       display: flex;
       justify-content: flex-end;
-      max-width: 400px;
+      max-width: 640px;
+      padding-left: 1rem;
       .contacts {
         padding: 1rem;
         padding-right: 2rem;
+        li {
+          padding: 0.25rem 0;
+        }
       }
     }
     .mapContainer {

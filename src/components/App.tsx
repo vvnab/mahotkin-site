@@ -15,7 +15,7 @@ import styles from "./App.module.scss";
 const App: FC = observer(() => {
   return (
     <div className={styles.container}>
-      <Loader loading={ui.loading}/>
+      <Loader loading={ui.loading} />
       <Message
         text={ui.message}
         messageType={ui.messageType}
@@ -23,12 +23,11 @@ const App: FC = observer(() => {
       />
       <Router history={history}>
         <Header />
-        <section>
-          <Switch>
-            <Route exact path="/" component={Main} />
-            <Route exact path="/Profile" component={Profile} />
-          </Switch>
-        </section>
+        <Switch>
+          <Route exact path="/" component={Main} />
+          <Route exact path="/lease" component={Main} />
+          <Route exact path="/profile" component={Profile} />
+        </Switch>
         <Footer />
       </Router>
     </div>

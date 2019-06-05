@@ -1,26 +1,33 @@
 import qs from "qs";
+import config from "../config";
 
 interface IRequestOptions {
   body?: any;
   form?: any;
-  query?: Object;
-  asForm?: boolean;
+  query?: any;
+  headers?: any;
+  cors?: boolean
 }
 
 class API {
   async request(method: 'GET' | 'POST' | 'PUT' | 'DELETE', path: string, {
     body,
     form,
-    query
+    query,
+    headers,
+    cors = true
   }: IRequestOptions): Promise<any> {
     const url = path + (query ? '?' + qs.stringify(query) : '');
-    let headers: any = {
+    headers = {
+      ...headers, 
       'Accept': 'application/json'
     }
+    console.log(headers);
     let response = await fetch(url, {
       method,
       headers,
-      // credentials: 'include',
+      mode: cors ? "cors" : "no-cors",
+      // credentials: "omit",
       body: form ? form : JSON.stringify(body)
     });
     if (response.status !== 200) {
@@ -28,7 +35,7 @@ class API {
       try {
         const json = await response.json();
         error = json.details;
-      } catch(err) {
+      } catch (err) {
         error = response.statusText;
       }
       throw new Error(error);

@@ -47,11 +47,11 @@ const Callback: FC = () => {
     if (!hasErrors) {
       data.callback(formData).then(result => {
         if (result !== false) {
-          ui.setMessage({text: t('callback.success')});
+          ui.setMessage({ text: t("callback.success") });
           setFio("");
           setPhone("");
         } else {
-          ui.setMessage({text: t('callback.error'), type: "ERROR"});
+          ui.setMessage({ text: t("callback.error"), type: "ERROR" });
         }
       });
     }
@@ -80,7 +80,9 @@ const Callback: FC = () => {
         error={errors.phone}
         validator={i => validator.isMobilePhone(i.replace(/\D/g, ""), "ru-RU")}
       />
-      <Submit className={styles.button}>{t("callback.submit")}</Submit>
+      <Submit className={styles.button}>
+        {t(`${data.sended ? "callback.submit2" : "callback.submit"}`)}
+      </Submit>
     </form>
   );
 };

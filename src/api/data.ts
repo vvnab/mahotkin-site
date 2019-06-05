@@ -5,7 +5,7 @@ import API from "./index";
 
 export class DataAPI {
   static async callback(data: ICallback): Promise<boolean> {
-    throw new Error("ERROR!");
+    return Promise.resolve(true);
   }
 
   static async sendProfile(data: IProfile): Promise<boolean> {

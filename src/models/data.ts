@@ -12,6 +12,7 @@ export interface ICallbackErrors {
 
 export interface IProfile {
   [key: string]: string | undefined;
+  timestamp?: string;
   fio?: string;
   phone?: string;
   license?: string;
@@ -22,6 +23,7 @@ export interface IProfile {
   carColor?: string;
   carYear?: string;
   carRegNo?: string;
+  type?: "JOB" | "LEASE"
 }
 
 export interface IProfileErrors {

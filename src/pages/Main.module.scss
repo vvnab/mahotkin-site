@@ -1,9 +1,132 @@
+@import "../assets/colors.scss";
+
+.section {
+  flex: 1 1 100%;
+  padding: 5vmax 0;
+}
+
 .container {
-  max-width: 1280px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
+  max-width: 1280px;
+  padding: 1rem;
+}
+
+.section_1 {
+  @extend .section;
+  padding-top: 0;
+  background-image: url("../assets/img_bg1.jpg");
+  background-size: cover;
+  background-position: center center;
+  text-align: left;
+  position: relative;
+  .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $section-1-background-color;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+    color: $section-1-text-color;
+  }
   .title {
-    // max-width: 50vw;
+    font-size: 120%;
+    max-width: 600px;
+    flex: 1 1 auto;
+    .link {
+      color: $main-link-color;
+    }
+  }
+}
+
+.section_2 {
+  @extend .section;
+  text-align: center;
+  background-color: $section-2-background-color;
+  .container {
+    .cells {
+      margin-top: 3vmax;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      @media only screen and (min-width: 680px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      grid-gap: 5vw;
+      .cell {
+        :nth-child(1) {
+          font-weight: 600;
+        }
+        :nth-child(2) {
+          margin-top: 1rem;
+          font-size: 80%;
+        }
+      }
+    }
+    .link {
+      margin-top: 4rem;
+      padding: 1rem 2rem;
+      background-color: $submit-background-color;
+      color: $submit-text-color;
+      display: inline-block;
+    }
+  }
+}
+
+.section_3 {
+  @extend .section;
+  text-align: center;
+  background-color: $section-3-background-color;
+  .container {
+    ol {
+      text-align: left;
+      counter-reset: item;
+      padding: 0;
+      margin: 0;
+      li {
+        counter-increment: item;
+        list-style-type: none;
+        h3 {
+          display: inline-block;
+          margin-left: 5rem;
+        }
+        div {
+          margin-left: 5rem;
+        }
+        &::before {
+          position: absolute;
+          margin-top: 2rem;
+          width: 3rem;
+          height: 3rem;
+          font-size: 2rem;
+          font-weight: bold;
+          background: $submit-background-color;
+          color: $submit-text-color;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 100%;
+          content: counter(item);
+        }
+      }
+    }
+  }
+}
+.section_4 {
+  @extend .section;
+  text-align: center;
+  background-color: $section-2-background-color;
+  .container {
+    .link {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background-color: $submit-background-color;
+      color: $submit-text-color;
+      display: inline-block;
+    }
   }
 }

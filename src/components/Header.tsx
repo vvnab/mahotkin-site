@@ -37,6 +37,9 @@ const Header: FC = () => {
           <Link to="/profile" className={styles.menuItem}>
             {t("header.menu.2")}
           </Link>
+          {/* <Link to="/lease" className={styles.menuItem}>
+            {t("header.menu.3")}
+          </Link> */}
           <Link to="/#footer" className={styles.menuItem}>
             {t("header.menu.1")}
           </Link>

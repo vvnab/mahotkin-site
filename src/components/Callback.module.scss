@@ -3,6 +3,9 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   margin: 1rem auto;
+  border: 10px solid $form-border-color;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
 }

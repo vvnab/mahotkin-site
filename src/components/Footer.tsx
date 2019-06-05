@@ -16,8 +16,8 @@ const Footer: React.FC = () => {
       <div className={styles.content}>
         <div className={styles.contactsContainer}>
           <ul className={styles.contacts}>
-            <li>{t('header.phone')}</li>
-            <li>{t('contacts.telegram')}</li>
+            <li>{t('contacts.address')}</li>
+            <li>{t('contacts.phone')}</li>
             <li>{t('contacts.viber')}</li>
             <li>{t('contacts.email')}</li>
           </ul>

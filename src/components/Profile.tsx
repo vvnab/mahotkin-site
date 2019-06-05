@@ -12,20 +12,20 @@ import styles from "./Profile.module.scss";
 
 const MIN_TEXTFIELD_LENGTH = 3;
 
-const initValues = {
-  fio: "Набережный Виталий Викторович",
-  phone: "+79128649411",
-  license: "11ШМ 123456",
-  licenseDate: "12.05.2011",
-  licenseDateExpire: "12.05.2030",
-  carBrand: "Toyota",
-  carModel: "Supra",
-  carColor: "жёлтый",
-  carYear: "2001",
-  carRegNo: "о111оо 011"
-};
+// const initValues = {
+//   fio: "Набережный Виталий Викторович",
+//   phone: "+79128649411",
+//   license: "33АА 123456",
+//   licenseDate: "12.05.2004",
+//   licenseDateExpire: "12.05.2024",
+//   carBrand: "Toyota",
+//   carModel: "Supra",
+//   carColor: "жёлтый",
+//   carYear: "2002",
+//   carRegNo: "oo123oo 011"
+// };
 
-const initValues2 = {
+export const initValues = {
   fio: "",
   phone: "",
   license: "",
@@ -102,10 +102,10 @@ const Profile: FC = () => {
     if (!hasErrors) {
       data.sendProfile(values).then(result => {
         if (result !== false) {
-          setValues(initValues2);
-          ui.setMessage({text: t('profile.success')});
+          setValues(initValues);
+          ui.setMessage({ text: t("profile.success") });
         } else {
-          ui.setMessage({text: t('profile.error'), type: "ERROR"});
+          ui.setMessage({ text: t("profile.error"), type: "ERROR" });
         }
       });
     } else {
@@ -223,7 +223,9 @@ const Profile: FC = () => {
         error={errors.carRegNo}
       />
 
-      <Submit className={styles.button}>{t("profile.submit")}</Submit>
+      <Submit className={styles.button}>
+        {t(`${data.sended ? "profile.submit2" : "profile.submit"}`)}
+      </Submit>
     </form>
   );
 };
