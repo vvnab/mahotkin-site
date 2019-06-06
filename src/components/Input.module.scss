@@ -39,6 +39,7 @@
   }
 
   .hint {
+    color: $form-text-color;
     opacity: 0.75;
     font-family: "Roboto";
     font-size: 0.8rem;
@@ -49,6 +50,7 @@
   }
     
   .hint2 {
+    color: $form-text-color;
     opacity: 0.75;
     font-family: "Roboto Condensed";
     font-size: 0.8rem;
