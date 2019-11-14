@@ -61,7 +61,7 @@ const Profile: FC = () => {
             );
             break;
           case "license":
-            s.license = !(value && value.match(/\d{2}[а-яА-Яa-zA-Z]{2} \d{6}/));
+            s.license = !(value && value.match(/\d{2}[а-яА-Яa-zA-Z0-9]{2} \d{6}/));
             break;
           case "licenseDate":
             s.licenseDate = !(value && value.match(/\d{2}\.\d{2}\.\d{4}/));

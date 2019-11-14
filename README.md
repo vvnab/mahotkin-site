@@ -20,7 +20,7 @@ You will also see any lint errors in the console.
 
 ### `yarn deploy`
 
-Deploy app on https://mahotkin-site.web.app
+Deploy app on https://mk-group-taxi.ru
 
 ------------------------------
 
