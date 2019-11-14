@@ -16,6 +16,7 @@
       .contacts {
         padding: 1rem;
         padding-right: 2rem;
+        list-style-type: square;
         li {
           padding: 0.25rem 0;
         }
@@ -24,9 +25,8 @@
     .mapContainer {
       background: $form-background-color;
       flex: 1 1 auto;
-      min-height: 40vh;
+      min-height: 400px;
       border: none;
-      border-top: 1px solid $footer-border-color;
     }
   }
 }

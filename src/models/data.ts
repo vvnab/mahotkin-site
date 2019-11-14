@@ -23,6 +23,8 @@ export interface IProfile {
   carColor?: string;
   carYear?: string;
   carRegNo?: string;
+  carVin?: string;
+  carSts?: string;
   type?: "JOB" | "LEASE"
 }
 
@@ -38,4 +40,6 @@ export interface IProfileErrors {
   carColor?: boolean;
   carYear?: boolean;
   carRegNo?: boolean;
+  carVin?: boolean;
+  carSts?: boolean;
 }

@@ -35,7 +35,9 @@ export const initValues = {
   carModel: "",
   carColor: "",
   carYear: "",
-  carRegNo: ""
+  carRegNo: "",
+  carVin: "",
+  carSts: ""
 };
 
 const Profile: FC = () => {
@@ -47,7 +49,7 @@ const Profile: FC = () => {
   const submit = (e: FormEvent) => {
     const errors = Object.keys(values).reduce(
       (s: IProfileErrors, i: string) => {
-        const value = values ? values[i] : undefined;
+        let value = values ? values[i] : undefined;
         switch (i) {
           case "fio":
             s.fio = !(value && value.length > MIN_TEXTFIELD_LENGTH);
@@ -84,6 +86,18 @@ const Profile: FC = () => {
           case "carRegNo":
             s.carRegNo = !(
               value && value.match(/[а-яА-Яa-zA-Z]\d{3}[а-яА-Яa-zA-Z]{2} \d{3}/)
+            );
+            break;
+          case "carVin":
+            value = value && value.replace("_", "");
+            s.carVin = !(
+              value && value.length === 17
+            );
+            break;
+          case "carSts":
+            value = value && value.replace("_", "");
+            s.carSts = !(
+              value && value.length === 12
             );
             break;
           default:
@@ -221,6 +235,27 @@ const Profile: FC = () => {
         value={values.carRegNo}
         onChange={setValue}
         error={errors.carRegNo}
+      />
+
+      <Input
+        type="text"
+        placeholder={t("profile.carVin")}
+        name="carVin"
+        mask={config.vinMask}
+        validator={i => i.match(/[а-яА-Яa-zA-Z]\d{3}[а-яА-Яa-zA-Z]{2} \d{3}/)}
+        value={values.carVin}
+        onChange={setValue}
+        error={errors.carVin}
+      />
+      <Input
+        type="text"
+        placeholder={t("profile.carSts")}
+        name="carSts"
+        mask={config.stsMask}
+        validator={i => i.match(/[а-яА-Яa-zA-Z]\d{3}[а-яА-Яa-zA-Z]{2} \d{3}/)}
+        value={values.carSts}
+        onChange={setValue}
+        error={errors.carSts}
       />
 
       <Submit className={styles.button}>
