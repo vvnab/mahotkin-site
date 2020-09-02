@@ -6,7 +6,7 @@ import config from "../config";
 import styles from "./Footer.module.scss";
 
 const Map = () => (
-  <iframe className={styles.mapContainer} src={config.map} frameBorder="0"></iframe>
+  <iframe className={styles.mapContainer} src={config.map} frameBorder="0" title="gmap"></iframe>
 );
 
 const Footer: React.FC = () => {

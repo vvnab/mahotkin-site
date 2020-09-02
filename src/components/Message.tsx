@@ -1,5 +1,4 @@
 import React, { FC, MouseEventHandler } from "react";
-import { observer } from "mobx-react-lite";
 
 import styles from "./Message.module.scss";
 

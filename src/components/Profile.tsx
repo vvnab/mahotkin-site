@@ -12,19 +12,6 @@ import styles from "./Profile.module.scss";
 
 const MIN_TEXTFIELD_LENGTH = 3;
 
-// const initValues = {
-//   fio: "Набережный Виталий Викторович",
-//   phone: "+79128649411",
-//   license: "33АА 123456",
-//   licenseDate: "12.05.2004",
-//   licenseDateExpire: "12.05.2024",
-//   carBrand: "Toyota",
-//   carModel: "Supra",
-//   carColor: "жёлтый",
-//   carYear: "2002",
-//   carRegNo: "oo123oo 011"
-// };
-
 export const initValues = {
   fio: "",
   phone: "",

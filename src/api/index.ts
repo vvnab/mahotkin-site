@@ -1,5 +1,4 @@
 import qs from "qs";
-import config from "../config";
 
 interface IRequestOptions {
   body?: any;
