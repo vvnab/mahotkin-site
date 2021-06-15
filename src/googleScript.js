@@ -38,7 +38,7 @@ function saveTable(e) {
 function botMessage(e) {
   var bot_token = "1875371250:AAGp-Mnt3DhSsijzYoYj1nizTC0lbsc1u88";
   var tg_method = "sendMessage";
-  var chat_id = "@MkGroup";
+  var chat_id = "-1001391831862";
 
   var data = {
     method: "post",
