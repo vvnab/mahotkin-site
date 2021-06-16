@@ -42,11 +42,12 @@ function botMessage(e) {
 
   var data = {
     method: "post",
+    contentType: "application/json",
     muteHttpExceptions: true,
-    payload: {
+    payload: JSON.stringify({
       chat_id: chat_id,
-      text: e.parameter.fio + " " + e.parameter.phone,
-    },
+      text: e.parameter["fio"] + "\n" + e.parameter["phone"],
+    }),
   };
 
   var res = UrlFetchApp.fetch(

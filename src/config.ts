@@ -12,7 +12,7 @@ export default {
   regNoMask: [/[а-яА-Яa-zA-Z]/, /\d/, /\d/, /\d/, /[а-яА-Яa-zA-Z]/, /[а-яА-Яa-zA-Z]/, ' ', /\d/, /\d/, /\d/],
   vinMask: new Array(17).fill(vinSymbol),
   stsMask: [/\d/, /\d/, ' ', /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/],
-  sheetUrl: "https://script.google.com/macros/s/AKfycby2eZSPJgeRxUoXfyMC72Y7Ew1Ux-CJ07nfyAkRtZG31WkmiqJJIQhI7GZ-8t95ko4QkQ/exec",
+  sheetUrl: "https://script.google.com/macros/s/AKfycbwd_qoP91sP3N1Zlt5tCafYL8XiPz8AotUPKuxd0oVuXOSxTpBjFtH7c3j6a4Q5GBD39g/exec",
   viberUrl: "https://chatapi.viber.com/pa/post",
   viberToken: "49c89d39cd67d3c7-30d035d370be9de0-c4a52f4c8bf66181",
   towns: [
